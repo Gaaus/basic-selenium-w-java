@@ -18,6 +18,9 @@ public class IfElseStatement {
 
         boolean areTheyOnTime = arrivalTime == EXPECTED_TIME;
 
+        // ternary operator: la cach viet gon cho 1 ve if () {} else
+        // boolean areTheyOnTime = arrivalTime == EXPECTED_TIME ? true:false;
+
         System.out.println("1. Dat xe ra");
         System.out.println("2. Chay toi quan");
 
