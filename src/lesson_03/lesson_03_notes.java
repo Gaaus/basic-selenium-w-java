@@ -73,5 +73,7 @@ public class lesson_03_notes {
 
             }
         }
+        // loop follow control keywords: continue, break
     }
 }
+
