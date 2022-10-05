@@ -7,7 +7,7 @@ import java.util.List;
 public class lab_3_3 {
     public static void main(String[] args) {
         int[] intArr = {12, 34, 1, 16, 28};
-
+//        int[] intArr = {12, 34, 1, 16, 28, -1, -1000, -9999, 12, 344, 45, 6};
         int minNum, minIdx, tmpArrLength;
 
 
