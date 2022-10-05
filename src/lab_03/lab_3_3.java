@@ -6,51 +6,50 @@ import java.util.List;
 
 public class lab_3_3 {
     public static void main(String[] args) {
-//        int[] originArr = {12,34,1,16,28};
-//        Arrays.sort(originArr);
-//        System.out.println(Arrays.toString(originArr));
-        int[] originArr = {12,34,1,16,28};
-        List<Integer> resultArr = new ArrayList<>();
-        List<Integer> restArr = new ArrayList<>();
+        int[] intArr = {12, 34, 1, 16, 28};
 
-//        int pickedNum = originArr[0];
-        int lookupNum = originArr[0];
-        for (int idx = 0; idx <= originArr.length - 1; idx++) {
-            if (idx == 0) {
-                lookupNum = originArr[idx];
-                continue;
-            } else {
-                if (originArr[idx] < lookupNum) lookupNum = originArr[idx];
-                else continue;
+        int minNum, minIdx, tmpArrLength;
+
+
+        List<Integer> sortedArr = new ArrayList<>();
+        List<Integer> tmpArr = new ArrayList<>();
+
+        tmpArrLength = intArr.length;
+
+        // clone intArr to a tmpArr (ArrayList, to use .add)
+        for (int i = 0; i < tmpArrLength ; i++) {
+            tmpArr.add(intArr[i]);
+        }
+//        System.out.println(tmpArr);
+
+        while (tmpArrLength > 1) {
+            minNum = tmpArr.get(0);
+            minIdx = 0;
+
+            for (int i = 0; i < tmpArrLength; i++) {
+                if (i == 0) {
+                    continue;
+                }
+                else {
+                    if (tmpArr.get(i) <= minNum) {
+                        minNum = tmpArr.get(i);
+                        minIdx = i;
+                    } else continue;
+                }
             }
+
+            sortedArr.add(minNum);
+//            System.out.println(sortedArr);
+
+            tmpArr.remove(minIdx);
+//            System.out.println(tmpArr);
+            tmpArrLength--;
+
         }
-        resultArr.add(lookupNum);
+        sortedArr.add(tmpArr.get(0));
 
-        for (int value:originArr) {
-            if (value != lookupNum) {
-                restArr.add(value);
-            } else continue;
-        }
-        System.out.println(restArr);
-
-        for (int idx = 0; idx <= restArr.toArray().length - 1; idx++) {
-            if (idx == 0) {
-                lookupNum = restArr.indexOf(idx);
-            } else {
-                if (restArr.indexOf(idx) < lookupNum) lookupNum = restArr.indexOf(idx);
-                else continue;
-            }
-        }
-        resultArr.add(lookupNum);
-
-        for (int value:restArr) {
-            if (value != lookupNum) {
-                restArr.add(value);
-            } else continue;
-        }
-
-
-
+        System.out.println("The origin / input integer array is: " + Arrays.toString(intArr));
+        System.out.println("The sorted array is: " + sortedArr);
 
 
     }
