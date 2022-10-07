@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class lab_3_2 {
     public static void main(String[] args) {
-        int[] intArr = {1,2,3,4,5};
+        int[] intArr = {1, 2, 3, 4, 5};
 //        int[] intArr = {1,1,1,1,5,8,-1,3};
         int minNum = intArr[0];
         int maxNum = intArr[0];
