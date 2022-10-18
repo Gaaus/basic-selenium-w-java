@@ -32,21 +32,32 @@ public class lab_3_4 {
 
         }
 
-        if (pointer1 < lengthArr01) {
-            for (int idx = pointer1; idx < lengthArr01 ; idx++) {
-                mergedArr[pointer3] = intArr01[idx];
-                pointer3++;
-            }
-
+        while (pointer1 < lengthArr01) {
+            mergedArr[pointer3] = intArr01[pointer1];
+            pointer3++;
+            pointer1++;
         }
 
-        if (pointer2 < lengthArr02) {
-            for (int idx = pointer2; idx < lengthArr02 ; idx++) {
-                mergedArr[pointer3] = intArr02[idx];
-                pointer3++;
-            }
-
+        while (pointer2 < lengthArr02) {
+            mergedArr[pointer3] = intArr02[pointer2];
+            pointer3++;
+            pointer2++;
         }
+//        if (pointer1 < lengthArr01) {
+//            for (int idx = pointer1; idx < lengthArr01 ; idx++) {
+//                mergedArr[pointer3] = intArr01[idx];
+//                pointer3++;
+//            }
+//
+//        }
+//
+//        if (pointer2 < lengthArr02) {
+//            for (int idx = pointer2; idx < lengthArr02 ; idx++) {
+//                mergedArr[pointer3] = intArr02[idx];
+//                pointer3++;
+//            }
+//
+//        }
 
         System.out.println("Arr1 is: " + Arrays.toString(intArr01));
         System.out.println("Arr2 is: " + Arrays.toString(intArr02));

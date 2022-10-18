@@ -40,7 +40,8 @@ public class BubbleSort {
         System.out.println("myArr is Sorted as: " + Arrays.toString(myArr));
 
 //      If dont use variable tmp as a mid-point to deliver / switch numbers between Left & Right
-        int[] myArr1 = {2, 56, 2, 3, 1, 12, 12, 12, 4, 5, 6, 7, 7, 2, 4, 2, 1, 3334};
+//        int[] myArr1 = {2, 56, 2, 3, 1, 12, 12, 12, 4, 5, 6, 7, 7, 2, 4, 2, 1, 3334};
+        int[] myArr1 = {2, 2, 7, 13, 7, 6, 34, 99, 8, 11};
         System.out.println();
         System.out.println("Origin myArr1 is: " + Arrays.toString(myArr1));
 
