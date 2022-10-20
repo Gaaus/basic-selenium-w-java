@@ -1,132 +1,126 @@
 package lab_05;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class lab_05 {
-    // public: service
+
     public static void main(String[] args) {
+        /*
+         * while continuePlay = true:
+         *   displayMenu() --> (1 add, 2 print, 3 max, 4 min, 5 search, 0 quit)
+         *   getUserOption()
+         *   6 options so use switch cases. Each option call to a method
+         * */
 
-        boolean isContinuing = true;
+        int userOption;
+        boolean continuePlay = true;
+        List<Integer> storedArrList = new ArrayList<>();
 
-
-        while (isContinuing) {
-            printMenu();
-            int userOption = getUserOption(); // int userOption = scanner.nextInt();
-            List<Integer> intArr = new ArrayList<>();
-
+        while (continuePlay) {
+            displayMenu();
+            userOption = getUserOption();
             switch (userOption) {
                 case 0: {
-                    isContinuing = false;
+                    continuePlay = false;
                     break;
                 }
-                case 1: {
-                    intArr = addNumberToArrayList(intArr);
+                case 1: {   // addNumberIntoArrayList
+                    addNumberIntoArrayList(storedArrList);
                     break;
                 }
                 case 2: {
-                    printNumbers(intArr);
+                    printArrayList(storedArrList);
+                    printEachNumber(storedArrList);
                     break;
                 }
                 case 3: {
-                    getMaximumNum(intArr);
+                    int maxNum;
+                    maxNum = getMaxNum(storedArrList);
+                    System.out.println("Max number in array is: " + maxNum);
                     break;
                 }
                 case 4: {
-                    getMinimumNum(intArr);
-                    break;
+//                    int minNumIndex;
+//                    minNumIndex = storedArrList.indexOf(getMinNum(storedArrList));
+//                    System.out.print("Minimum number in an array is at index: " + minNumIndex);
+//                    break;
                 }
-                case 5: {
-                    searchANumber(intArr);
-                    break;
-                }
-                default: {
-                    System.out.println("Nhap lui roi Teo oi!");
-                    break;
-                }
+                case 5: {}
             }
         }
 
+
     }
 
-
-    // private --> support method
-
-    private static void printMenu() {
-        System.out.println("==== MENU ====");
+    private static void displayMenu() {
+        System.out.println();
+        System.out.println("============== MENU ===============");
         System.out.println("1. Add number into ArrayList");
         System.out.println("2. Print numbers");
         System.out.println("3. Get maximum number");
         System.out.println("4. Get minimum number");
         System.out.println("5. Search number");
-        System.out.println("0. Quit game!");
+        System.out.println("0. Quit game!!!");
+        System.out.println("===================================");
+        System.out.println();
     }
-    private static int getUserOption() {
-        System.out.print("Please input a option number: ");
 
+    private static Integer getUserOption() {
+        System.out.print("Please enter your option: ");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
 
-    private static List<Integer> addNumberToArrayList(List<Integer> intArr) {
-        System.out.print("Please input an integer number to be added: ");
-
-        Scanner scanner = new Scanner(System.in);
-        intArr.add(scanner.nextInt());
-        System.out.println(intArr);
-        return intArr;
+    private static void addNumberIntoArrayList(List<Integer> arrList) {
+        /*
+         * int addMore;
+         * do :
+         *   *   " plz input " --> input a number
+         *   privArrList.add(numInput)
+         *   " add more? true/false"
+         *   continueAdd = scanner1.nextInt()
+         * while (continueAdd = true)
+         *
+         * */
+        boolean continueAdd;
+        int numInput;
+        do {
+            System.out.print("Please input an integer number: ");
+            Scanner scanner = new Scanner(System.in);
+            numInput = scanner.nextInt();
+            arrList.add(numInput);
+            System.out.print("Do you want to add more? (true/false) --> : ");
+            Scanner scanner1 = new Scanner(System.in);
+            continueAdd = scanner1.nextBoolean();
+        } while (continueAdd == true);
     }
 
-    private static void printNumbers(List<Integer> intArr) {
-        System.out.print("Numbers in ArrayList are: " + intArr);
-
-//        return intArr;
+    private static void printArrayList(List<Integer> arrList) {
+        System.out.println("Array is: " + arrList);
     }
 
-    private static int getMaximumNum(List<Integer> intArr) {
-
-        int maxNum = intArr.get(0);
-        for (int i = 0; i < intArr.size(); i++) {
-            if (i == 0) continue;
-            else {
-                if (intArr.get(i) >= maxNum) maxNum = intArr.get(i);
-                else continue;
-            }
+    private static void printEachNumber(List<Integer> arrList) {
+        System.out.println("Numbers in an array are:......");
+        for (Integer value : arrList) {
+            System.out.println(value);
         }
 
-        System.out.print("Maximum Number in ArrayList is: ");
-        return maxNum;
-    }
-    private static int getMinimumNum(List<Integer> intArr) {
-
-        int minNum = intArr.get(0);
-        for (int i = 0; i < intArr.size(); i++) {
-            if (i == 0) continue;
-            else {
-                if (intArr.get(i) <= minNum) minNum = intArr.get(i);
-                else continue;
-            }
-        }
-
-        System.out.print("Minimum Number in ArrayList is: ");
-        return minNum;
-
-
     }
 
-    private static int searchANumber(List<Integer> intArr) {
-        System.out.print("Please input searching number: ");
-        Scanner scanner = new Scanner(System.in);
-        int searchNum = scanner.nextInt();
-        int idxFound = Integer.MAX_VALUE;
-
-        for (int i = 0; i < intArr.size(); i++) {
-            if (intArr.get(i) == searchNum) {
-                idxFound = i;
-                System.out.print("Index of searching number in ArrayList is: ");
-            } else System.out.print("Number could not be found: ");
-        }
-        return idxFound;
+    private static Integer getMaxNum(List<Integer> arrList) {
+        int privmaxNum;
+        Set<Integer> setArrList= new HashSet<>(arrList);
+        List<Integer> ascStoredArrList = new ArrayList<>(setArrList);
+        privmaxNum = ascStoredArrList.get(ascStoredArrList.size()-1);
+        return (privmaxNum);
     }
+//    private static Integer getMinNum(List<Integer> arrList) {
+//        int minNum;
+//        Set<Integer> setArrList= new HashSet<>(arrList);
+//        List<Integer> ascStoredArrList = new ArrayList<>(setArrList);
+//        minNum = ascStoredArrList.get(0);
+//        System.out.println(ascStoredArrList);
+//        System.out.println(minNum);
+//        return (minNum);
+//    }
 }
