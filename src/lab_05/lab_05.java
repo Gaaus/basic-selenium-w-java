@@ -40,12 +40,17 @@ public class lab_05 {
                     break;
                 }
                 case 4: {
-//                    int minNumIndex;
-//                    minNumIndex = storedArrList.indexOf(getMinNum(storedArrList));
-//                    System.out.print("Minimum number in an array is at index: " + minNumIndex);
-//                    break;
+                    int minNum;
+                    minNum = getMinNum(storedArrList);
+                    System.out.print("Minimum number in an array is: " + minNum);
+                    break;
                 }
-                case 5: {}
+                case 5: {
+                    searchNumber(storedArrList);
+                    break;
+                }
+                default:
+                    System.out.println("Wrong option, please re-input....");
             }
         }
 
@@ -83,12 +88,10 @@ public class lab_05 {
          *
          * */
         boolean continueAdd;
-        int numInput;
         do {
             System.out.print("Please input an integer number: ");
             Scanner scanner = new Scanner(System.in);
-            numInput = scanner.nextInt();
-            arrList.add(numInput);
+            arrList.add(scanner.nextInt());
             System.out.print("Do you want to add more? (true/false) --> : ");
             Scanner scanner1 = new Scanner(System.in);
             continueAdd = scanner1.nextBoolean();
@@ -108,19 +111,28 @@ public class lab_05 {
     }
 
     private static Integer getMaxNum(List<Integer> arrList) {
-        int privmaxNum;
-        Set<Integer> setArrList= new HashSet<>(arrList);
-        List<Integer> ascStoredArrList = new ArrayList<>(setArrList);
-        privmaxNum = ascStoredArrList.get(ascStoredArrList.size()-1);
-        return (privmaxNum);
+        int maxNum;
+        SortedSet<Integer> sortedSetArrList = new TreeSet<>(arrList);
+        List<Integer> ascStoredArrList = new ArrayList<>(sortedSetArrList);
+        maxNum = ascStoredArrList.get(ascStoredArrList.size()-1);
+        return (maxNum);
     }
-//    private static Integer getMinNum(List<Integer> arrList) {
-//        int minNum;
-//        Set<Integer> setArrList= new HashSet<>(arrList);
-//        List<Integer> ascStoredArrList = new ArrayList<>(setArrList);
-//        minNum = ascStoredArrList.get(0);
-//        System.out.println(ascStoredArrList);
-//        System.out.println(minNum);
-//        return (minNum);
-//    }
+
+    private static Integer getMinNum(List<Integer> arrList) {
+        int minNum;
+        SortedSet<Integer> sortedSetArrList = new TreeSet<>(arrList);
+        List<Integer> ascStoredArrList = new ArrayList<>(sortedSetArrList);
+        minNum = ascStoredArrList.get(0);
+        return (minNum);
+    }
+    private static void searchNumber(List<Integer> storedArrList) {
+        System.out.print("Please input Searching Number: ");
+        Scanner scanner = new Scanner(System.in);
+        int searchNum = scanner.nextInt();
+        if (storedArrList.contains(searchNum) == true) {
+            System.out.println("Index of the searching number is: " + storedArrList.indexOf(searchNum));
+        } else {
+            System.out.println("No Index found");
+        }
+    }
 }

@@ -1,8 +1,8 @@
-package lesson_05;
+package other_practices;
 
 import java.util.*;
 
-public class HgOtherPractices {
+public class RemoveElementsInArray {
     public static void main(String[] args) {
 
         /*
