@@ -6,16 +6,20 @@ public class lab_06_02 {
     public static void main(String[] args) {
         /* Check user input correct password, allow to input maximum 3 times
         * quota = 3
-        * parse char in myPassword to myArrPass
         * * do (while quota > 0):
             * usr input pass
-            * parse char in usrPassword to usrArrPass
-            * If myArrPass.length = usrArrPass.length:
-            *   no: -> Failed
-            *   pass: loop over char of myArrPass:
-            *       if myArrPass[i].equals(usrArrPass[i]) --> Pass
-            *       else" failed
-            * quota--;
+            * checkResult = checkPassword();
+            * if checkResult = true:
+            *   "congrats..."
+            * else:
+            *   "wrong pass.."
+            *   quota--;
+            *   if quota = 0 --> Bye
+        * checkPassword():
+        *   compare length, not == return false
+        *   length ==:
+        *       if myPassword.equals(usrPassword) return True;
+        *       else return false
         * */
         String myPassword = "password123";
         int quota = 3;
