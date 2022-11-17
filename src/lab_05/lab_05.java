@@ -125,6 +125,7 @@ public class lab_05 {
         minNum = ascStoredArrList.get(0);
         return (minNum);
     }
+
     private static void searchNumber(List<Integer> storedArrList) {
         System.out.print("Please input Searching Number: ");
         Scanner scanner = new Scanner(System.in);
